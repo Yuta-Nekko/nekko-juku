@@ -2,34 +2,236 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>my web-site</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>nekko 総合型選抜塾｜咲く力は、根っこにある。</title>
+  <meta name="description" content="理工系・情報系を志す高校1・2年生のための、総合型選抜の伴走塾。月1回の面談と日々の小さな発表・記述で、自分の興味を深める習慣をつくります。">
+  <meta property="og:title" content="nekko 総合型選抜塾">
+  <meta property="og:description" content="咲く力は、根っこにある。理工系・情報系を志す高校1・2年生のための、総合型選抜の伴走塾。">
+  <meta property="og:type" content="website">
+  <!-- ▼【準備中表示】稼働時は次の1行を削除（検索結果に表示されるようになります） ▼ -->
+  <meta name="robots" content="noindex, nofollow">
+  <!-- ▲【準備中表示】ここまで ▲ -->
+
+  <!-- 見出し用フォント(丸ゴシック)。読み込めない場合は下記CSSのフォールバックで表示されます -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <header class="header">
-    <h1 class="logo">My Website</h1>
-    <nav class="nav">
-      <ul>
-        <li><a href="#">HOME</a></li>
-        <li><a href="#">Nekkooooooo</a></li>
-        <li><a href="#">Q&A</a></li>
-      </ul>
+<!-- ▼▼▼【準備中表示】ここから（稼働時はここから「ここまで」までを削除） ▼▼▼ -->
+<div class="preparing-banner" role="status">
+  <p><strong>ご案内</strong>　このサービスは現在設立中です。稼働までもうしばらくお待ちください。</p>
+</div>
+<!-- ▲▲▲【準備中表示】ここまで ▲▲▲ -->
+
+<header class="site-header">
+  <div class="inner header-inner">
+    <a class="brand" href="./" aria-label="nekko 総合型選抜塾 トップへ">
+      <!--
+        ロゴは nekko-official_logo.jpg を CSS で「ロゴ部分だけ」切り出して表示しています。
+        透過PNGなどに差し替えるときは、この span を
+        <img src="nekko-logo.png" alt="nekko 根っこから、可能性を広げる。" class="logo-img">
+        に置き換え、style.css の .logo を .logo-img に置き換えてください。
+      -->
+      <span class="logo" role="img" aria-label="nekko 根っこから、可能性を広げる。"></span>
+    </a>
+    <nav class="global-nav" aria-label="メインメニュー">
+      <a href="#about">想い</a>
+      <a href="#features">特徴</a>
+      <a href="#flow">指導の流れ</a>
+      <a href="#price">料金</a>
+      <a href="#profile">運営者</a>
+      <a class="nav-cta" href="#contact">お問い合わせ</a>
     </nav>
-  </header>
+  </div>
+</header>
 
-  <main class="main-content">
-    <section class="card">
-      <h2>Hi, I'm Yuta Nekko:)</h2>
-      <p>This page is still under construction.Please wait a while until it is complete.</p>
-      <button class="btn">Comming Soon!!</button>
-    </section>
-  </main>
+<main>
 
-  <footer class="footer">
-    <p>&copy; 2026 My Website. All rights reserved.</p>
-  </footer>
+  <!-- ヒーロー -->
+  <section class="hero">
+    <div class="inner">
+      <p class="hero-service">総合型選抜塾</p>
+      <h1>咲く力は、<br>根っこにある。</h1>
+      <div class="rule" aria-hidden="true"></div>
+      <p class="hero-lead">
+        理工系・情報系を志す高校1・2年生のための、総合型選抜の伴走塾です。
+        月1回の面談と、日々の小さな発表・記述で、自分の興味を深める習慣をつくります。
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#contact">無料モニターに応募する</a>
+        <a class="btn btn-secondary" href="#flow">指導の流れを見る</a>
+      </div>
+      <p class="notice">初回8週間は無料の「モニター」を募集しています。</p>
+    </div>
+  </section>
+
+  <!-- 想い -->
+  <section class="section section-tint" id="about">
+    <div class="inner narrow">
+      <h2>想い</h2>
+      <p>
+        総合型選抜は、何をどうすれば戦えるのかが分からないところから始まります。
+        私自身がそうでした。
+      </p>
+      <p>
+        高校の先生が制度を教えてくれ、さまざまな実績づくりを手伝ってくれたことで、道が開けました。
+        ただ、それは環境に恵まれていたからでもあります。
+        同じように力のある人が、環境の違いで機会を逃さないように。
+        総合型選抜を突破した当事者として、これから挑む高校生に伴走します。
+      </p>
+    </div>
+  </section>
+
+  <!-- 特徴 -->
+  <section class="section" id="features">
+    <div class="inner">
+      <h2>nekkoの総合型選抜塾の特徴</h2>
+      <dl class="features">
+        <div class="feature feature-main">
+          <dt>面接や書類を「日常の習慣」にする</dt>
+          <dd>
+            直前の詰め込みではなく、高1・2から月1回、日常の出来事を人に伝える練習を重ねます。
+            発表の題材を選んだ理由を書く作業は、志願理由書と同じ形式。
+            話す・書く力を、無理なく身につけていきます。
+          </dd>
+        </div>
+        <div class="feature feature-main">
+          <dt>指導者が当事者に近い</dt>
+          <dd>
+            担当するのは、理系で総合型選抜を突破した現役の大学生です。
+            受験当時に何が分からず、何に困ったかを覚えている立場から、具体的に伝えます。
+          </dd>
+        </div>
+        <div class="feature">
+          <dt>実績をつくるのは本人</dt>
+          <dd>
+            研究やコンテストを塾が用意して参加させることはしません。
+            日々の会話から興味を探り、情報提供と相談を通して、本人が選べるようにします。
+          </dd>
+        </div>
+        <div class="feature">
+          <dt>長く続けられる</dt>
+          <dd>
+            1回の指導は長時間ではなく、月1回の面談を軸にした伴走型。
+            部活や学校生活と並行して続けられます。
+          </dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- 指導の流れ -->
+  <section class="section section-tint" id="flow">
+    <div class="inner">
+      <h2>指導の流れ</h2>
+      <p class="section-lead">4週間を1サイクルとして、次のように進めます。</p>
+      <ol class="steps">
+        <li>
+          <h3>第1週　ミーティング</h3>
+          <p>1〜2時間ほどのオンライン面談。この1か月の出来事を口頭で発表し、全体へフィードバックします。雑談や研究の相談もここで。</p>
+        </li>
+        <li>
+          <h3>第2週　振り返り</h3>
+          <p>発表を録画した動画を自分で見て、改善点を書き出します。それに対してフィードバックします。</p>
+        </li>
+        <li>
+          <h3>第3週　題材を選ぶ</h3>
+          <p>次回の発表題材と、その題材を選んだ理由を書きます。志願理由書の形式に慣れていきます。</p>
+        </li>
+        <li>
+          <h3>第4週　スライド提出</h3>
+          <p>次回の発表用スライドを提出し、フィードバックを受けます。</p>
+        </li>
+      </ol>
+      <p class="note">
+        発表する内容は、研究などの特別なことでなくて構いません。日常の1コマを、その場にいなかった人へ、正確に、印象的に伝える練習です。
+      </p>
+    </div>
+  </section>
+
+  <!-- 対象 -->
+  <section class="section" id="target">
+    <div class="inner narrow">
+      <h2>対象</h2>
+      <p>理工系・情報系の大学への進学を考えている、高校1・2年生が対象です。</p>
+      <p class="note">高校3年生向けのプランは準備中です。</p>
+    </div>
+  </section>
+
+  <!-- 料金・契約 -->
+  <section class="section section-tint" id="price">
+    <div class="inner">
+      <h2>料金・契約</h2>
+      <div class="price-box">
+        <p class="price"><span class="price-num">20,000円</span><span class="price-unit">／8週間</span></p>
+        <p class="notice">初回の8週間は無料のモニターを募集しています。</p>
+      </div>
+      <dl class="spec">
+        <div><dt>契約</dt><dd>8週間単位で更新します（月単位ではありません）</dd></div>
+        <div><dt>お支払い</dt><dd>銀行振込</dd></div>
+        <div><dt>面談の方法</dt><dd>オンライン（Google Meet）。ご希望があれば対面も可能です（レンタルルームなどを利用）</dd></div>
+        <div><dt>連絡</dt><dd>生徒・保護者の方・指導者の3者で、Google Chatを使います</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- 運営者 -->
+  <section class="section" id="profile">
+    <div class="inner narrow">
+      <h2>運営者</h2>
+      <!-- お名前などを追記してください -->
+      <p class="profile-name">根子優太　<span>屋号：ねっこ（nekko）</span></p>
+      <p>
+        情報理工系の大学生。高校時代に総合型選抜で合格しました。
+      </p>
+      <ul class="plain-list">
+        <li>県後援のプログラミングコンテスト、ビジネスコンテストに出場</li>
+        <li>スーパーサイエンスハイスクール（SSH）の全国発表会に出場</li>
+        <li>視覚障害のある方の生活を支援する機器を開発。特別支援学校・盲学校へ自分で連絡し、生徒の方々の協力を得て研究</li>
+      </ul>
+      <p>
+        総合型選抜で大切なのは、周囲に興味を持ち、周囲の力を自分の力に変えていくことだと考えています。
+        その姿勢を、生徒と一緒に育てていきます。
+      </p>
+    </div>
+  </section>
+
+  <!-- お問い合わせ -->
+  <section class="section section-tint" id="contact">
+    <div class="inner narrow">
+      <h2>お問い合わせ・モニター応募</h2>
+      <p>
+        ご質問や体験のご相談、モニターへのご応募は、下記からお気軽にどうぞ。
+        保護者の方からのお問い合わせも歓迎します。
+      </p>
+      <div class="hero-actions">
+        <!-- GoogleフォームのURLに差し替えてください -->
+        <a class="btn btn-primary" href="GOOGLE_FORM_URL">フォームから送る</a>
+        <a class="btn btn-secondary" href="mailto:info@nekko-official.net">メールで送る</a>
+      </div>
+      <p class="note">メール：info@soukatsu.net</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner footer-inner">
+    <div>
+      <p class="footer-brand">nekko</p>
+      <p class="footer-tagline">根っこから、可能性を広げる。</p>
+    </div>
+    <nav class="footer-nav" aria-label="フッターメニュー">
+      <!-- 次の2ページは別途作成が必要です -->
+      <a href="tokushoho.html">特定商取引法に基づく表記</a>
+      <a href="privacy.html">プライバシーポリシー</a>
+    </nav>
+  </div>
+  <p class="copyright">© 2026 nekko</p>
+</footer>
 
 </body>
 </html>
