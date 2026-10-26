@@ -83,15 +83,11 @@ a:focus-visible, .btn:focus-visible {
 
 .brand { display: block; line-height: 0; }
 
-/* nekko-official_logo.jpg から、ロゴ部分だけを切り出して表示 */
-.logo {
+/* ヘッダーのロゴ（塾のロゴ Bタイプ）。高さだけ指定し、幅は自動 */
+.logo-img {
   display: block;
-  height: 52px;
-  aspect-ratio: 750 / 255;
-  background-image: url("nekko-official_logo.jpg");
-  background-repeat: no-repeat;
-  background-size: 136.53% auto;      /* 1024 / 750 */
-  background-position: 51.1% 45.8%;   /* 切り出し位置（左140px・上350px） */
+  height: 120px;
+  width: auto;
 }
 
 .global-nav {
@@ -285,28 +281,75 @@ a:focus-visible, .btn:focus-visible {
   font-size: 1.25rem;
   margin-bottom: 16px;
 }
-.profile-name span {
-  margin-left: 12px;
-  font-size: 0.9375rem;
-  font-weight: 500;
+.profile {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 48px;
+  align-items: start;
+}
+.profile-photo { margin: 0; }
+.photo-placeholder,
+.profile-photo img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 12px;
+}
+.photo-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-tint);
+  border: 2px dashed var(--green);
   color: var(--text-sub);
+  font-family: var(--font-head);
 }
-.plain-list { margin: 0 0 1.4em; }
-.plain-list li {
+
+.timeline-title {
+  margin: 28px 0 12px;
+  font-size: 1.125rem;
+}
+/* 経歴（時系列）。左に年月、右に出来事、縦線でつなぐ */
+.timeline {
   position: relative;
-  padding-left: 1.4em;
-  margin-bottom: 0.4em;
+  margin: 0 0 1.6em;
+  padding-left: 22px;
 }
-.plain-list li::before {
+.timeline::before {
   content: "";
   position: absolute;
-  left: 0;
-  top: 0.8em;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--green);
+  left: 5px;
+  top: 0.9em;
+  bottom: 0.9em;
+  width: 2px;
+  background: linear-gradient(180deg, var(--green), var(--blue));
 }
+.timeline li {
+  position: relative;
+  display: grid;
+  grid-template-columns: 8.5em 1fr;
+  gap: 12px;
+  padding: 6px 0;
+}
+.timeline li::before {
+  content: "";
+  position: absolute;
+  left: -22px;
+  top: 0.95em;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #fff;
+  border: 3px solid var(--teal);
+}
+.timeline time {
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 0.9375rem;
+  line-height: 1.9;
+}
+.timeline p { margin: 0; }
 
 /* ---------- フッター ---------- */
 .site-footer {
@@ -320,14 +363,12 @@ a:focus-visible, .btn:focus-visible {
   align-items: flex-end;
   gap: 24px;
 }
-.footer-brand {
-  margin: 0;
-  font-family: var(--font-head);
-  font-weight: 700;
-  font-size: 1.5rem;
-  line-height: 1.3;
+.footer-logo {
+  display: block;
+  height: 84px;
+  width: auto;
 }
-.footer-tagline { margin: 4px 0 0; color: var(--text-sub); font-size: 0.9375rem; }
+.footer-tagline { margin: 10px 0 0; color: var(--text-sub); font-size: 0.9375rem; }
 .footer-nav { display: flex; flex-wrap: wrap; gap: 8px 24px; font-size: 0.875rem; }
 .footer-nav a { color: var(--text-sub); }
 .copyright {
@@ -348,7 +389,7 @@ a:focus-visible, .btn:focus-visible {
   body { font-size: 15.5px; }
 
   .header-inner { padding-top: 14px; padding-bottom: 14px; }
-  .logo { height: 42px; }
+  .logo-img { height: 38px; }
   /* 狭い画面ではメニューを省略し、お問い合わせだけ残す */
   .global-nav a:not(.nav-cta) { display: none; }
 
@@ -359,6 +400,11 @@ a:focus-visible, .btn:focus-visible {
   .steps { grid-template-columns: 1fr; }
 
   .spec > div { grid-template-columns: 1fr; gap: 4px; }
+
+  .profile { grid-template-columns: 1fr; gap: 28px; }
+  .profile-photo { max-width: 220px; }
+  .timeline li { grid-template-columns: 1fr; gap: 0; }
+  .footer-logo { height: 72px; }
 
   .hero-actions .btn { width: 100%; }
 }
