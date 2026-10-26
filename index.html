@@ -29,13 +29,7 @@
 <header class="site-header">
   <div class="inner header-inner">
     <a class="brand" href="./" aria-label="nekko 総合型選抜塾 トップへ">
-      <!--
-        ロゴは nekko-official_logo.jpg を CSS で「ロゴ部分だけ」切り出して表示しています。
-        透過PNGなどに差し替えるときは、この span を
-        <img src="nekko-logo.png" alt="nekko 根っこから、可能性を広げる。" class="logo-img">
-        に置き換え、style.css の .logo を .logo-img に置き換えてください。
-      -->
-      <span class="logo" role="img" aria-label="nekko 根っこから、可能性を広げる。"></span>
+      <img class="logo-img" src="logo/juku_Blogo_original.png" alt="根子塾">
     </a>
     <nav class="global-nav" aria-label="メインメニュー">
       <a href="#about">想い</a>
@@ -53,8 +47,8 @@
   <!-- ヒーロー -->
   <section class="hero">
     <div class="inner">
-      <p class="hero-service">総合型選抜塾</p>
-      <h1>咲く力は、<br>根っこにある。</h1>
+      <p class="hero-service">総合型選抜専門</p>
+      <h1>根子塾</h1>
       <div class="rule" aria-hidden="true"></div>
       <p class="hero-lead">
         理工系・情報系を志す高校1・2年生のための、総合型選抜の伴走塾です。
@@ -88,7 +82,7 @@
   <!-- 特徴 -->
   <section class="section" id="features">
     <div class="inner">
-      <h2>nekkoの総合型選抜塾の特徴</h2>
+      <h2>根子塾の特徴</h2>
       <dl class="features">
         <div class="feature feature-main">
           <dt>面接や書類を「日常の習慣」にする</dt>
@@ -157,7 +151,7 @@
     <div class="inner narrow">
       <h2>対象</h2>
       <p>理工系・情報系の大学への進学を考えている、高校1・2年生が対象です。</p>
-      <p class="note">高校3年生向けのプランは準備中です。</p>
+      <p class="note">高校3年生向けのプランは準備中です。<br>ご要望次第では、中学生向けのプランも考案いたします。</p>
     </div>
   </section>
 
@@ -172,7 +166,7 @@
       <dl class="spec">
         <div><dt>契約</dt><dd>8週間単位で更新します（月単位ではありません）</dd></div>
         <div><dt>お支払い</dt><dd>銀行振込</dd></div>
-        <div><dt>面談の方法</dt><dd>オンライン（Google Meet）。ご希望があれば対面も可能です（レンタルルームなどを利用）</dd></div>
+        <div><dt>面談の方法</dt><dd>オンライン（Google Meet）<br>ご希望があれば対面も可能です（レンタルルームなどを利用）</dd></div>
         <div><dt>連絡</dt><dd>生徒・保護者の方・指導者の3者で、Google Chatを使います</dd></div>
       </dl>
     </div>
@@ -180,22 +174,72 @@
 
   <!-- 運営者 -->
   <section class="section" id="profile">
-    <div class="inner narrow">
+    <div class="inner">
       <h2>運営者</h2>
-      <!-- お名前などを追記してください -->
-      <p class="profile-name">根子優太　<span>屋号：ねっこ（nekko）</span></p>
-      <p>
-        情報理工系の大学生。高校時代に総合型選抜で合格しました。
-      </p>
-      <ul class="plain-list">
-        <li>県後援のプログラミングコンテスト、ビジネスコンテストに出場</li>
-        <li>スーパーサイエンスハイスクール（SSH）の全国発表会に出場</li>
-        <li>視覚障害のある方の生活を支援する機器を開発。特別支援学校・盲学校へ自分で連絡し、生徒の方々の協力を得て研究</li>
-      </ul>
-      <p>
-        総合型選抜で大切なのは、周囲に興味を持ち、周囲の力を自分の力に変えていくことだと考えています。
-        その姿勢を、生徒と一緒に育てていきます。
-      </p>
+      <div class="profile">
+
+        <figure class="profile-photo">
+          <!--
+            【指導者の写真】準備ができたら、次の div を下の img に置き換えてください。
+            <img src="images/instructor.jpg" alt="指導者の写真（お名前）">
+            推奨：縦長（4:5）。正方形や横長でも自動で切り抜かれます。
+          -->
+          <div class="photo-placeholder" role="img" aria-label="指導者の写真を配置する場所">
+            <span>写真</span>
+          </div>
+        </figure>
+
+        <div class="profile-body">
+          <!-- お名前を入力してください -->
+          <p class="profile-name">根子優太</p>
+          <p>
+            情報理工系の大学生。高校時代に総合型選抜で合格しました。
+          </p>
+
+          <h3 class="timeline-title">経歴</h3>
+          <!--
+            【経歴の雛形】古い順に上から並べます。
+            増やすときは <li>…</li> を1つ丁寧にコピーして追加してください。
+            <time> の中に「2024年4月」など、右側の <p> に出来事を書きます。
+          -->
+          <ol class="timeline">
+            <li>
+              <time>2022年4月</time>
+              <p>群馬県立桐生高等学校 普通科 入学</p>
+            </li>
+            <li>
+              <time>【年・月】</time>
+              <p>県後援のプログラミングコンテスト、ビジネスコンテストに出場</p>
+            </li>
+            <li>
+              <time>【年・月】</time>
+              <p>スーパーサイエンスハイスクール（SSH）の全国発表会に出場</p>
+            </li>
+            <li>
+              <time>【年・月】</time>
+              <p>視覚障害のある方の生活を支援する機器を開発。特別支援学校・盲学校へ自分で連絡し、生徒の方々の協力を得て研究</p>
+            </li>
+            <li>
+              <time>2024年11月</time>
+              <p>総合型選抜で電気通信大学Ⅱ類に合格</p>
+            </li>
+            <li>
+              <time>2025年4月</time>
+              <p>電気通信大学 入学</p>
+            </li>
+            <li>
+              <time>2026年11月</time>
+              <p>根子塾 設立</p>
+            </li>
+          </ol>
+
+          <p>
+            総合型選抜で大切なのは、周囲に興味を持ち、周囲の力を自分の力に変えていくことだと考えています。
+            その姿勢を、生徒と一緒に育てていきます。
+          </p>
+        </div>
+
+      </div>
     </div>
   </section>
 
@@ -221,8 +265,7 @@
 <footer class="site-footer">
   <div class="inner footer-inner">
     <div>
-      <p class="footer-brand">nekko</p>
-      <p class="footer-tagline">根っこから、可能性を広げる。</p>
+      <img class="footer-logo" src="logo/nekko-official_Blogo_original.png" alt="nekko">
     </div>
     <nav class="footer-nav" aria-label="フッターメニュー">
       <!-- 次の2ページは別途作成が必要です -->
