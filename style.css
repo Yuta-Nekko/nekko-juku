@@ -197,6 +197,7 @@ a:focus-visible, .btn:focus-visible {
 .section { padding: 88px 0; }
 .section-tint { background: var(--bg-tint); }
 
+.section h1.page-heading,
 .section h2 {
   font-size: clamp(1.5rem, 3.4vw, 2rem);
   margin-bottom: 32px;
@@ -205,6 +206,7 @@ a:focus-visible, .btn:focus-visible {
   text-align: center;   /* サブタイトルは中央揃え */
 }
 /* 見出し下の短いグラデーション線（ロゴの芽の色） */
+.section h1.page-heading::after,
 .section h2::after {
   content: "";
   position: absolute;
@@ -661,6 +663,50 @@ a:focus-visible, .btn:focus-visible {
   margin: 0;
   padding: 0 0 22px;
   color: var(--text-sub);
+}
+
+/* ---------- 特定商取引法に基づく表記ページ ---------- */
+.legal .spec { max-width: none; }
+.legal .spec > div { grid-template-columns: 13em 1fr; }
+.legal .section-lead { margin-bottom: 28px; }
+
+/* 記入が必要な箇所の目印（公開前に、確定した内容に書き換えてマークごと削除する） */
+mark.todo {
+  padding: 0 0.3em;
+  background: var(--yellow-soft);
+  border-bottom: 2px solid var(--yellow);
+  color: inherit;
+}
+
+@media (max-width: 720px) {
+  .legal .spec > div { grid-template-columns: 1fr; gap: 4px; }
+}
+
+/* ---------- プライバシーポリシー ---------- */
+.policy h3 {
+  margin: 2.4em 0 0.6em;
+  padding-left: 0.8em;
+  border-left: 4px solid var(--green);
+  font-size: 1.1875rem;
+  text-align: left;
+}
+.policy p,
+.policy li { line-height: 2; }
+.policy ul { margin: 0 0 1.4em; }
+.policy li {
+  position: relative;
+  padding-left: 1.3em;
+  margin-bottom: 0.3em;
+}
+.policy li::before {
+  content: "";
+  position: absolute;
+  left: 0.2em;
+  top: 0.95em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--green);
 }
 
 /* ▼▼▼【準備中表示】ここから（稼働時はここから末尾の「ここまで」までを削除） ▼▼▼ */
