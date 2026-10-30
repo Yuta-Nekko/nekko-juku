@@ -28,7 +28,7 @@
 /* ---------- ベース ---------- */
 *, *::before, *::after { box-sizing: border-box; }
 
-html { scroll-behavior: smooth; scroll-padding-top: 16px; }
+html { scroll-behavior: smooth; scroll-padding-top: 80px; }
 
 body {
   margin: 0;
@@ -38,6 +38,7 @@ body {
   font-size: 16px;
   line-height: 1.9;
   -webkit-text-size-adjust: 100%;
+  text-align: left;   /* 本文はすべて左揃え（サブタイトルのみ中央揃え） */
 }
 
 h1, h2, h3 {
@@ -69,26 +70,45 @@ a:focus-visible, .btn:focus-visible {
   html { scroll-behavior: auto; }
 }
 
-/* ---------- ヘッダー ---------- */
-.site-header { background: var(--bg); }
+/* ---------- ヘッダー（バナーと一緒に画面上部へ追従） ---------- */
+.sticky-top {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.site-header {
+  background: var(--bg);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.25s ease;
+}
+.site-header.show-logo { border-bottom-color: var(--line); }
 
 .header-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 24px;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  min-height: 64px;
 }
 
-.brand { display: block; line-height: 0; }
+/* 左上のロゴ（塾のロゴ Bタイプ）。高さだけ指定し、幅は自動 */
+.header-logo { display: block; line-height: 0; }
+.header-logo img { display: block; height: 40px; width: auto; }
 
-/* ヘッダーのロゴ（塾のロゴ Bタイプ）。高さだけ指定し、幅は自動 */
-.logo-img {
-  display: block;
-  height: 120px;
-  width: auto;
+/* JS有効時：ファーストビューのロゴが見えている間は隠す（場所は確保してメニューは右に固定） */
+.js .header-logo {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s;
 }
+.js .site-header.show-logo .header-logo {
+  opacity: 1;
+  visibility: visible;
+}
+
 
 .global-nav {
   display: flex;
@@ -113,15 +133,12 @@ a:focus-visible, .btn:focus-visible {
 }
 
 /* ---------- ヒーロー ---------- */
-.hero { padding: 72px 0 96px; }
+.hero { padding: 96px 0 112px; }
 
-.hero-service {
-  margin: 0 0 20px;
-  color: var(--text-sub);
-  font-size: 1rem;
-}
-
-.hero h1 {
+.hero-catch {
+  margin: 0;
+  font-family: var(--font-head);
+  font-weight: 700;
   font-size: clamp(2.25rem, 6.2vw, 4rem);
   letter-spacing: 0.04em;
   line-height: 1.4;
@@ -185,14 +202,16 @@ a:focus-visible, .btn:focus-visible {
   margin-bottom: 32px;
   padding-bottom: 14px;
   position: relative;
+  text-align: center;   /* サブタイトルは中央揃え */
 }
 /* 見出し下の短いグラデーション線（ロゴの芽の色） */
 .section h2::after {
   content: "";
   position: absolute;
-  left: 0;
+  left: 50%;
+  transform: translateX(-50%);
   bottom: 0;
-  width: 56px;
+  width: 200px;
   height: 4px;
   border-radius: 2px;
   background: linear-gradient(90deg, var(--green), var(--blue));
@@ -307,6 +326,7 @@ a:focus-visible, .btn:focus-visible {
 }
 
 .timeline-title {
+  text-align: center;
   margin: 28px 0 12px;
   font-size: 1.125rem;
 }
@@ -351,8 +371,126 @@ a:focus-visible, .btn:focus-visible {
 }
 .timeline p { margin: 0; }
 
+/* ---------- プロフィール写真のスライダー（横に自動スクロール） ---------- */
+.slider { position: relative; }
+.slider-track {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;          /* スクロールバーは隠す（スワイプ・ドットで操作） */
+  border-radius: 12px;
+}
+.slider-track::-webkit-scrollbar { display: none; }
+.slide {
+  flex: 0 0 100%;
+  scroll-snap-align: start;
+  list-style: none;
+}
+
+.slider-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+/* ドット：選択中のものだけ、緑→青のグラデーションの細長い形になる */
+.slider-dots { display: flex; align-items: center; }
+.slider-dots button {
+  width: 20px;
+  height: 24px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  transition: width 0.3s ease;
+}
+.slider-dots button[aria-current="true"] { width: 36px; }
+.slider-dots button::before {
+  content: "";
+  display: block;
+  width: 8px;
+  height: 8px;
+  margin: auto;
+  border-radius: 999px;
+  background: var(--line);
+  transition: width 0.3s ease, background 0.3s ease;
+}
+.slider-dots button:hover::before { background: var(--teal); }
+.slider-dots button[aria-current="true"]::before {
+  width: 28px;
+  background: linear-gradient(90deg, var(--green), var(--blue));
+}
+
+/* 停止／再生ボタン：緑→青の縁取りの丸ボタン。アイコンはCSSで描く */
+.slider-toggle {
+  position: relative;
+  flex: 0 0 auto;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  border: 2px solid transparent;
+  border-radius: 50%;
+  background:
+    linear-gradient(#fff, #fff) padding-box,
+    linear-gradient(135deg, var(--green), var(--blue)) border-box;
+  color: var(--navy);
+  font-size: 0;             /* 文字は使わない（読み上げ用のラベルだけ） */
+  cursor: pointer;
+  transition: color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+/* 停止アイコン（縦棒2本）：自動スクロール中に表示 */
+.slider-toggle::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 3px;
+  height: 12px;
+  margin: -6px 0 0 -4.5px;
+  border-radius: 1.5px;
+  background: currentColor;
+  box-shadow: 6px 0 0 currentColor;
+}
+/* 再生アイコン（三角）：停止中に表示 */
+.slider-toggle.is-paused::before {
+  width: 0;
+  height: 0;
+  margin: -6px 0 0 -3px;
+  border-style: solid;
+  border-width: 6px 0 6px 10px;
+  border-color: transparent transparent transparent currentColor;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+}
+.slider-toggle:hover {
+  background:
+    linear-gradient(135deg, var(--green), var(--blue)) padding-box,
+    linear-gradient(135deg, var(--green), var(--blue)) border-box;
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(11, 95, 174, 0.25);
+  transform: translateY(-1px);
+}
+.slider-toggle:active { transform: translateY(0); }
+.slider-dots button:focus-visible,
+.slider-toggle:focus-visible {
+  outline: 3px solid var(--teal);
+  outline-offset: 2px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .slider-track { scroll-behavior: auto; }
+  .slider-dots button,
+  .slider-dots button::before,
+  .slider-toggle { transition: none; }
+}
+
 /* ---------- フッター ---------- */
 .site-footer {
+  text-align: left;
   padding: 56px 0 28px;
   border-top: 1px solid var(--line);
 }
@@ -388,12 +526,14 @@ a:focus-visible, .btn:focus-visible {
 @media (max-width: 720px) {
   body { font-size: 15.5px; }
 
-  .header-inner { padding-top: 14px; padding-bottom: 14px; }
-  .logo-img { height: 38px; }
+  .header-inner { padding-top: 8px; padding-bottom: 8px; min-height: 56px; }
+  .header-logo img { height: 34px; }
   /* 狭い画面ではメニューを省略し、お問い合わせだけ残す */
   .global-nav a:not(.nav-cta) { display: none; }
 
-  .hero { padding: 40px 0 64px; }
+  .hero { padding: 56px 0 64px; }
+  .first-view { min-height: 70vh; min-height: 70svh; padding-bottom: 88px; }
+  .note-box { padding: 20px 20px 4px; }
   .section { padding: 64px 0; }
 
   .features { grid-template-columns: 1fr; }
@@ -409,11 +549,122 @@ a:focus-visible, .btn:focus-visible {
   .hero-actions .btn { width: 100%; }
 }
 
+/* ---------- ファーストビュー（塾ロゴ） ---------- */
+.first-view {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 78vh;
+  min-height: 78svh;
+  text-align: center;
+  padding: 24px 24px 96px;
+}
+.first-logo-wrap { margin: 0; line-height: 0; }
+.first-logo {
+  display: block;
+  width: min(420px, 72vw);
+  height: auto;
+}
+
+.scroll-cue {
+  position: absolute;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  color: var(--text-sub);
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-decoration: none;
+}
+.scroll-cue::after {
+  content: "";
+  width: 2px;
+  height: 44px;
+  border-radius: 1px;
+  background: linear-gradient(180deg, var(--green), var(--blue));
+  animation: cue 2s ease-in-out infinite;
+  transform-origin: top;
+}
+@keyframes cue {
+  0%   { transform: scaleY(0); opacity: 0; }
+  40%  { transform: scaleY(1); opacity: 1; }
+  100% { transform: scaleY(1); opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .scroll-cue::after { animation: none; }
+}
+
+/* ---------- コラム（想い） ---------- */
+.column h3 {
+  text-align: center;
+  margin: 2.6em 0 0.7em;
+  font-size: clamp(1.1875rem, 2.6vw, 1.375rem);
+}
+.column h2 + h3 { margin-top: 0; }
+.column p { line-height: 2.05; }
+
+/* ---------- 補足ボックス・指標 ---------- */
+.note-box {
+  max-width: var(--narrow);
+  margin-top: 44px;
+  padding: 24px 28px 8px;
+  background: #fff;
+  border-radius: 12px;
+  border-left: 5px solid var(--teal);
+}
+
+.signs { margin: 28px 0 8px; }
+.signs li {
+  padding: 4px 0 4px 20px;
+  margin-bottom: 20px;
+  border-left: 4px solid var(--green);
+}
+.signs li:nth-child(2) { border-left-color: var(--blue); }
+.signs strong {
+  display: block;
+  font-family: var(--font-head);
+  font-size: 1.0625rem;
+  margin-bottom: 4px;
+}
+.signs span { color: var(--text-sub); }
+
+/* ---------- よくある質問 ---------- */
+.faq details { border-top: 1px solid var(--line); }
+.faq details:last-child { border-bottom: 1px solid var(--line); }
+.faq summary {
+  position: relative;
+  padding: 20px 40px 20px 0;
+  font-family: var(--font-head);
+  font-weight: 700;
+  line-height: 1.6;
+  cursor: pointer;
+  list-style: none;
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after {
+  content: "+";
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.5rem;
+  line-height: 1;
+  color: var(--blue);
+}
+.faq details[open] summary::after { content: "−"; }
+.faq details p {
+  margin: 0;
+  padding: 0 0 22px;
+  color: var(--text-sub);
+}
+
 /* ▼▼▼【準備中表示】ここから（稼働時はここから末尾の「ここまで」までを削除） ▼▼▼ */
 .preparing-banner {
-  position: sticky;
-  top: 0;
-  z-index: 100;
   padding: 12px 24px;
   background: var(--yellow);
   color: var(--navy);
@@ -436,12 +687,12 @@ a:focus-visible, .btn:focus-visible {
   font-size: 0.875rem;
 }
 /* バナーに隠れないよう、ページ内リンクの移動位置をずらす */
-html { scroll-padding-top: 72px; }
+html { scroll-padding-top: 140px; }
 
 @media (max-width: 720px) {
   .preparing-banner { padding: 10px 16px; }
   .preparing-banner p { font-size: 0.9375rem; }
   .preparing-banner strong { display: block; width: fit-content; margin: 0 auto 4px; }
-  html { scroll-padding-top: 96px; }
+  html { scroll-padding-top: 160px; }
 }
 /* ▲▲▲【準備中表示】ここまで ▲▲▲ */
