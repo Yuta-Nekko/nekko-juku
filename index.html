@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>nekko 総合型選抜塾｜咲く力は、根っこにある。</title>
+  <title>根子塾｜咲く力は、根っこにある。</title>
   <meta name="description" content="理工系・情報系を志す高校1・2年生のための、総合型選抜の伴走塾。月1回の面談と日々の小さな発表・記述で、自分の興味を深める習慣をつくります。">
-  <meta property="og:title" content="nekko 総合型選抜塾">
+  <meta property="og:title" content="根子塾">
   <meta property="og:description" content="咲く力は、根っこにある。理工系・情報系を志す高校1・2年生のための、総合型選抜の伴走塾。">
   <meta property="og:type" content="website">
   <!-- ▼【準備中表示】稼働時は次の1行を削除（検索結果に表示されるようになります） ▼ -->
@@ -16,20 +16,28 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700&display=swap" rel="stylesheet">
+  <script>document.documentElement.classList.add("js");</script>
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body id="top">
+
+<div class="sticky-top">
 
 <!-- ▼▼▼【準備中表示】ここから（稼働時はここから「ここまで」までを削除） ▼▼▼ -->
 <div class="preparing-banner" role="status">
-  <p><strong>ご案内</strong>　このサービスは現在設立中です。稼働までもうしばらくお待ちください。</p>
+  <p><strong>ご案内</strong>　このサービスは現在構築中です。稼働までもうしばらくお待ちください。</p>
 </div>
 <!-- ▲▲▲【準備中表示】ここまで ▲▲▲ -->
 
 <header class="site-header">
   <div class="inner header-inner">
-    <a class="brand" href="./" aria-label="nekko 総合型選抜塾 トップへ">
-      <img class="logo-img" src="logo/juku_Blogo_original.png" alt="根子塾">
+    <!--
+      【ヘッダーのロゴ】塾のロゴ（Bタイプ：イラストの横に文字）。
+      ファーストビューのロゴが画面から出たあとにだけ表示されます。
+      ファイル名を実際のものに合わせてください。 → logo/juku_B.png
+    -->
+    <a class="header-logo" href="#top" aria-label="根子塾 ページの先頭へ">
+      <img src="logo/juku_Blogo_original.png" alt="根子塾">
     </a>
     <nav class="global-nav" aria-label="メインメニュー">
       <a href="#about">想い</a>
@@ -37,44 +45,98 @@
       <a href="#flow">指導の流れ</a>
       <a href="#price">料金</a>
       <a href="#profile">運営者</a>
+      <a href="#faq">よくある質問</a>
       <a class="nav-cta" href="#contact">お問い合わせ</a>
     </nav>
   </div>
 </header>
 
+</div>
+
 <main>
 
-  <!-- ヒーロー -->
-  <section class="hero">
+  <!-- ファーストビュー：塾のロゴだけを表示。スクロールすると本文が現れる -->
+  <section class="first-view" aria-label="ロゴ">
+    <!--
+      【ロゴ】塾のロゴ（Cタイプ：イラストの下に文字）。
+      ファイル名を実際のものに合わせてください。 → logo/juku_C.png
+    -->
+    <h1 class="first-logo-wrap">
+      <img class="first-logo" src="logo/juku_Clogo_original.png" alt="nekko 総合型選抜塾">
+    </h1>
+    <a class="scroll-cue" href="#intro" aria-label="本文へスクロール">
+      <span>scroll</span>
+    </a>
+  </section>
+
+  <!-- イントロ -->
+  <section class="hero" id="intro">
     <div class="inner">
-      <p class="hero-service">総合型選抜専門</p>
-      <h1>根子塾</h1>
+      <p class="hero-catch">根子塾</p>
+      <p>咲く力は、根っこにある。</p>
       <div class="rule" aria-hidden="true"></div>
       <p class="hero-lead">
-        理工系・情報系を志す高校1・2年生のための、総合型選抜の伴走塾です。
-        月1回の面談と、日々の小さな発表・記述で、自分の興味を深める習慣をつくります。
+        総合型選抜は、特別な誰かのための入試ではありません。
+        自分の興味を、時間をかけて突き詰めてきた人が評価される入試です。
+        高校1・2年生のうちから、その興味の「根っこ」を一緒に探し、育てていきます。
       </p>
       <div class="hero-actions">
         <a class="btn btn-primary" href="#contact">無料モニターに応募する</a>
         <a class="btn btn-secondary" href="#flow">指導の流れを見る</a>
       </div>
-      <p class="notice">初回8週間は無料の「モニター」を募集しています。</p>
+      <p class="notice">現在、初回8週間無料のモニターを募集しています。</p>
     </div>
   </section>
 
-  <!-- 想い -->
+  <!-- 想い（コラム） -->
   <section class="section section-tint" id="about">
-    <div class="inner narrow">
+    <div class="inner narrow column">
       <h2>想い</h2>
+
+      <h3>何をすればいいのか、分からなかった</h3>
       <p>
-        総合型選抜は、何をどうすれば戦えるのかが分からないところから始まります。
-        私自身がそうでした。
+        私が受験生だった頃、総合型選抜を最初に知ったのは高校の先生からの話でした。
+        どうすれば総合型で戦えるのか全くわからない私を指導してくださり、様々な経験を重ねました。
+        あの時、先生が道を示してくれたから、私は合格にたどり着けました。
+      </p>
+
+      <h3>でもそれは、環境に恵まれていたから</h3>
+      <p>
+        振り返ると、私の合格は環境に恵まれた面が大きかったと感じています。
+        先生の支えがあったこと。
+        研究に協力してくださる機関とのつながりが、たまたま高校にあったこと。
       </p>
       <p>
-        高校の先生が制度を教えてくれ、さまざまな実績づくりを手伝ってくれたことで、道が開けました。
-        ただ、それは環境に恵まれていたからでもあります。
-        同じように力のある人が、環境の違いで機会を逃さないように。
-        総合型選抜を突破した当事者として、これから挑む高校生に伴走します。
+        一方で、私の身近には、自分でIoT機器を作ってしまうほどの力がありながら、コンテストなどに出る機会がなく、
+        総合型選抜では実績として示しにくかった友人もいました。
+        力の差ではなく、環境の差で、機会が分かれてしまうこともあります。
+        その気づきが、この塾を始める原点です。
+      </p>
+
+      <h3>周囲を味方にする力</h3>
+      <p>
+        総合型選抜で本当に問われるのは、周囲にどれだけ興味を持ち、周囲の持つ力を自分の力に変えていけるか。
+        私はそう考えています。
+      </p>
+      <p>
+        たとえば、視覚障害のある方の生活を支援する機器を開発したとき、私は県内の盲学校に、自分で連絡をとりました。
+        研究活動への協力をお願いするためです。
+        先生の了承は事前にいただいていましたが、発案も、アポイントも、日程調整も自分から周りを巻き込んで行いました。
+        当日は、生徒の皆さんと打ち解けるために点字を添えた名刺を用いて挨拶し、研究内容とは全く関係のない、同じ高校生として雑談したり遊んだりもしました。
+      </p>
+      <p>
+        誰かに頼ることは、弱さではありません。
+        自分ひとりでは届かない場所へ進むための、実績をつくる力そのものです。
+      </p>
+
+      <h3>花を咲かせるための根っこを、一緒に</h3>
+      <p>
+        総合型選抜は、自分の興味をどれだけ突き詰められるかが問われる入試だと感じています。
+        だからこそ、実績を探しに行く前に、まず自分の興味に気づくところから始めたいと考えています。
+        高校1・2年生のうちから、じっくり時間をかけて向き合っても、遅すぎることはありません。
+        <br>
+        花を咲かせるのは、あなた自身です。
+        私は、その根っこが深く広がっていくように、一番近くで伴走します。
       </p>
     </div>
   </section>
@@ -82,35 +144,40 @@
   <!-- 特徴 -->
   <section class="section" id="features">
     <div class="inner">
-      <h2>根子塾の特徴</h2>
+      <h2>指導の特徴</h2>
       <dl class="features">
         <div class="feature feature-main">
           <dt>面接や書類を「日常の習慣」にする</dt>
           <dd>
-            直前の詰め込みではなく、高1・2から月1回、日常の出来事を人に伝える練習を重ねます。
-            発表の題材を選んだ理由を書く作業は、志願理由書と同じ形式。
-            話す・書く力を、無理なく身につけていきます。
+            面接や書類は、直前の詰め込みでは対応できません。
+            普段から人に伝え、文字に起こすことでその力が身についていきます。
+            根子塾では4週間に一度、日常の出来事を人に伝え、その題材を選んだ理由を文字にします。
+            この繰り返しが、そのまま面接で話す力と、想いを伝える文章を書く力になります。
           </dd>
         </div>
         <div class="feature feature-main">
           <dt>指導者が当事者に近い</dt>
           <dd>
             担当するのは、理系で総合型選抜を突破した現役の大学生です。
-            受験当時に何が分からず、何に困ったかを覚えている立場から、具体的に伝えます。
+            受験までの間、何が分からず、どこで悩んだのかを経験した立場から、受験生に近い目線で指導します。
+            様々な大学の総合型入試に関することや、技術系コンテストなど、本人の興味にあった情報を提供します。
           </dd>
         </div>
         <div class="feature">
-          <dt>実績をつくるのは本人</dt>
+          <dt>実績をつくるのは、本人</dt>
           <dd>
-            研究やコンテストを塾が用意して参加させることはしません。
-            日々の会話から興味を探り、情報提供と相談を通して、本人が選べるようにします。
+            研究やコンテストを、塾が用意して参加させることはありません。
+            もちろん、様々な情報はお伝えしますが、参加などの強制は本人の実績とは言えません。
+            普段の指導や雑談の中から本人の興味の芽を見つけ、情報提供と相談を行います。
+            参加するかどうかは本人が決めます。
           </dd>
         </div>
         <div class="feature">
-          <dt>長く続けられる</dt>
+          <dt>高1・2から、月1回、長く続ける</dt>
           <dd>
-            1回の指導は長時間ではなく、月1回の面談を軸にした伴走型。
-            部活や学校生活と並行して続けられます。
+            1回の面談は1〜2時間ほどが想定されています。
+            高校1・2年生から月1回のペースで続ける伴走型です。
+            部活や学校生活と両立しながら、無理なく確実に力をつけていきます。
           </dd>
         </div>
       </dl>
@@ -121,90 +188,175 @@
   <section class="section section-tint" id="flow">
     <div class="inner">
       <h2>指導の流れ</h2>
-      <p class="section-lead">4週間を1サイクルとして、次のように進めます。</p>
+      <p class="section-lead">
+        4週間を1サイクルとして、次のように進めます。
+        なお、あくまで参考であり、確実に以下の通りとは限りません。
+      </p>
       <ol class="steps">
         <li>
           <h3>第1週　ミーティング</h3>
-          <p>1〜2時間ほどのオンライン面談。この1か月の出来事を口頭で発表し、全体へフィードバックします。雑談や研究の相談もここで。</p>
+          <p>
+            1〜2時間ほどのオンライン面談。
+            1か月の出来事を口頭で発表し、全体へのフィードバックを受けます。
+            次回の発表の構成と時間もここで伝えます。
+            様々な情報提供や相談についてもこの時間に行います。
+          </p>
         </li>
         <li>
           <h3>第2週　振り返り</h3>
-          <p>発表を録画した動画を自分で見て、改善点を書き出します。それに対してフィードバックします。</p>
+          <p>
+            発表を録画した動画を見て、自分で改善点を書き出し振り返ります。
+            第1週で受けたフィードバック以外にも、自分で考えたことなどを書き出します。
+            それに対して、フィードバックを受けます。
+          </p>
         </li>
         <li>
           <h3>第3週　題材を選ぶ</h3>
-          <p>次回の発表題材と、その題材を選んだ理由を書きます。志願理由書の形式に慣れていきます。</p>
+          <p>
+            次回の発表の題材と、その題材を選んだ理由を書きます。
+            より志願理由書の形式に近い形での記述で、想いを文字で伝える力をつけていきます。
+            これに対して、フィードバックを受けます。
+          </p>
         </li>
         <li>
           <h3>第4週　スライド提出</h3>
-          <p>次回の発表用スライドを提出し、フィードバックを受けます。</p>
+          <p>
+            次回の発表に向けて、使用するスライドを作成、提出します。
+            自分の考えや想いを伝えるための道具として、スライドが使えるように力をつけていきます。
+            それに対して、フィードバックを受けます。
+          </p>
         </li>
       </ol>
+      <div class="note">
+        <p>
+          発表するのは、研究などの特別な内容である必要はありません。
+          発表の5週前から2週前までに起きた出来事から、題材を選びます。
+          日常の1コマを、その場にいなかった人へ、正確に、印象的に伝える練習です。
+        </p>
+        <p>
+          発表の時間は、毎回変わります。
+          「3分で伝える」「5分で伝える」と条件が変わるなかで、伝えたいことを選び、組み立てる力を鍛えます。
+        </p>
+        <p>
+          書いたものや作成したスライドなどのフィードバックに対して、修正して再提出する必要はありません。
+          それは指摘された内容が全て正しく、万人がそのように考えるわけではありません。
+          自分の考えや想いもあわせて、指摘されたことを受け、次回の課題で活かせれば問題ありません。
+          その繰り返しで力をつけていきます。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 1年後の姿 -->
+  <section class="section" id="goal">
+    <div class="inner narrow">
+      <h2>1年後に目指す姿</h2>
+      <p>
+        目指すのは、「視野が広がった」「知らなかった世界に触れた」と、本人が感じられるようになることです。
+        成果を点数で測りにくい取り組みだからこそ、変化のサインを次のように見ています。
+      </p>
+      <ul class="signs">
+        <li>
+          <strong>題材を選んだ理由が、深まっていく</strong>
+          <span>第3週に書く「なぜこの題材か」の文章が、回を重ねるごとに具体的で、自分の言葉になっていきます。</span>
+        </li>
+        <li>
+          <strong>体験のあとに、新しい「気になる」が生まれる</strong>
+          <span>コンテストなどへ参加したあとや新たな知識を得た際に、「これが気になる」「あれも知りたい」という反応が増えていきます。</span>
+        </li>
+      </ul>
       <p class="note">
-        発表する内容は、研究などの特別なことでなくて構いません。日常の1コマを、その場にいなかった人へ、正確に、印象的に伝える練習です。
+        体験の場はコンテスト等に限りません。
+        外部で人と関わる経験も大切ですが、必須ではありません。
+        まずは自分の興味関心に気づくところから、伴走します。
       </p>
     </div>
   </section>
 
   <!-- 対象 -->
-  <section class="section" id="target">
+  <section class="section section-tint" id="target">
     <div class="inner narrow">
       <h2>対象</h2>
       <p>理工系・情報系の大学への進学を考えている、高校1・2年生が対象です。</p>
-      <p class="note">高校3年生向けのプランは準備中です。<br>ご要望次第では、中学生向けのプランも考案いたします。</p>
+      <p>
+        指導者が理系で総合型選抜を突破した当事者であるため、現在は理工系・情報系に絞っています。
+        将来は指導者を増やし、より幅広い進路の方をお迎えしたいと考えています。
+      </p>
+      <p>
+        月1回の面談を長く続ける伴走型のため、それに無理なく取り組める方に向いています。
+        少人数でお受けするため、ひとりひとりに寄り添った指導を行います。
+      </p>
+      <p class="note">高校3年生向けのプランは現在準備中です。</p>
     </div>
   </section>
 
   <!-- 料金・契約 -->
-  <section class="section section-tint" id="price">
+  <section class="section" id="price">
     <div class="inner">
       <h2>料金・契約</h2>
       <div class="price-box">
         <p class="price"><span class="price-num">20,000円</span><span class="price-unit">／8週間</span></p>
-        <p class="notice">初回の8週間は無料のモニターを募集しています。</p>
+        <p class="notice">初回の8週間無料のモニターを募集しています。</p>
       </div>
       <dl class="spec">
         <div><dt>契約</dt><dd>8週間単位で更新します（月単位ではありません）</dd></div>
+        <div><dt>手続き</dt><dd>Googleフォームでの申込みと、電子媒体での同意書で行います</dd></div>
         <div><dt>お支払い</dt><dd>銀行振込</dd></div>
-        <div><dt>面談の方法</dt><dd>オンライン（Google Meet）<br>ご希望があれば対面も可能です（レンタルルームなどを利用）</dd></div>
-        <div><dt>連絡</dt><dd>生徒・保護者の方・指導者の3者で、Google Chatを使います</dd></div>
+        <div><dt>面談の方法</dt><dd>オンライン（Google Meet）<br>ご希望があれば対面も可能です（レンタルルームなどの施設を借りて行います）</dd></div>
+        <div><dt>連絡</dt><dd>日々の連絡は、生徒・保護者の方・指導者の3名のGoogle Chatで行います</dd></div>
       </dl>
     </div>
   </section>
 
   <!-- 運営者 -->
-  <section class="section" id="profile">
+  <section class="section section-tint" id="profile">
     <div class="inner">
       <h2>運営者</h2>
       <div class="profile">
 
         <figure class="profile-photo">
           <!--
-            【指導者の写真】準備ができたら、次の div を下の img に置き換えてください。
-            <img src="images/instructor.jpg" alt="指導者の写真（お名前）">
-            推奨：縦長（4:5）。正方形や横長でも自動で切り抜かれます。
+            【プロフィール写真のスライダー】横に自動で切り替わります（約4秒ごと）。
+            各 <li class="slide"> の中の <div class="photo-placeholder">…</div> を、次の形の <img> に置き換えてください。
+              <img src="images/profile-1.jpg" alt="写真の説明" loading="lazy">
+            ・枚数を増減するときは <li class="slide">…</li> を追加・削除するだけです（ドットも自動で増減します）。
+            ・推奨：縦長（4:5）。正方形や横長でも自動で切り抜かれます。
+            ・先頭の1枚だけは loading="lazy" を付けないでください。
           -->
-          <div class="photo-placeholder" role="img" aria-label="指導者の写真を配置する場所">
-            <span>写真</span>
+          <div class="slider" role="group" aria-roledescription="カルーセル" aria-label="運営者の写真">
+            <ul class="slider-track">
+              <li class="slide" aria-label="1枚目">
+                <div class="photo-placeholder" role="img" aria-label="写真1を配置する場所"><span>写真 1</span></div>
+              </li>
+              <li class="slide" aria-label="2枚目">
+                <div class="photo-placeholder" role="img" aria-label="写真2を配置する場所"><span>写真 2</span></div>
+              </li>
+              <li class="slide" aria-label="3枚目">
+                <div class="photo-placeholder" role="img" aria-label="写真3を配置する場所"><span>写真 3</span></div>
+              </li>
+              <li class="slide" aria-label="4枚目">
+                <div class="photo-placeholder" role="img" aria-label="写真4を配置する場所"><span>写真 4</span></div>
+              </li>
+              <li class="slide" aria-label="5枚目">
+                <div class="photo-placeholder" role="img" aria-label="写真5を配置する場所"><span>写真 5</span></div>
+              </li>
+            </ul>
+            <!-- ドットと停止ボタンはJavaScriptで自動的に作られます -->
+            <div class="slider-controls"></div>
           </div>
         </figure>
 
         <div class="profile-body">
-          <!-- お名前を入力してください -->
-          <p class="profile-name">根子優太</p>
+          <p class="profile-name">代表：根子優太</p>
           <p>
-            情報理工系の大学生。高校時代に総合型選抜で合格しました。
+            情報理工系の大学生。
+            高校時代に総合型選抜で合格しました。
           </p>
 
           <h3 class="timeline-title">経歴</h3>
-          <!--
-            【経歴の雛形】古い順に上から並べます。
-            増やすときは <li>…</li> を1つ丁寧にコピーして追加してください。
-            <time> の中に「2024年4月」など、右側の <p> に出来事を書きます。
-          -->
           <ol class="timeline">
             <li>
-              <time>2022年4月</time>
+              <time>2021年4月</time>
               <p>群馬県立桐生高等学校 普通科 入学</p>
             </li>
             <li>
@@ -216,12 +368,8 @@
               <p>スーパーサイエンスハイスクール（SSH）の全国発表会に出場</p>
             </li>
             <li>
-              <time>【年・月】</time>
-              <p>視覚障害のある方の生活を支援する機器を開発。特別支援学校・盲学校へ自分で連絡し、生徒の方々の協力を得て研究</p>
-            </li>
-            <li>
               <time>2024年11月</time>
-              <p>総合型選抜で電気通信大学Ⅱ類に合格</p>
+              <p>電気通信大学 総合型選抜 合格</p>
             </li>
             <li>
               <time>2025年4月</time>
@@ -229,16 +377,49 @@
             </li>
             <li>
               <time>2026年11月</time>
-              <p>根子塾 設立</p>
+              <p>根子塾設立</p>
             </li>
           </ol>
-
-          <p>
-            総合型選抜で大切なのは、周囲に興味を持ち、周囲の力を自分の力に変えていくことだと考えています。
-            その姿勢を、生徒と一緒に育てていきます。
-          </p>
         </div>
 
+      </div>
+    </div>
+  </section>
+
+  <!-- よくある質問 -->
+  <section class="section" id="faq">
+    <div class="inner narrow">
+      <h2>よくある質問</h2>
+      <div class="faq">
+        <details>
+          <summary>研究やコンテストの実績がなくても、参加できますか？</summary>
+          <p>もちろんです。発表する内容は、特別なものである必要はありません。日常の1コマから始めて、自分の興味に気づくところから伴走します。</p>
+        </details>
+        <details>
+          <summary>研究やコンテストを、紹介してもらえますか？</summary>
+          <p>情報提供はします。普段の雑談から生徒が何に興味を持つかを探り、コンテストなどへの参加を提案することもあります。ただし、参加の強制はしません。実績をつくる主体は本人です。</p>
+        </details>
+        <details>
+          <summary>文系志望でも受けられますか？</summary>
+          <p>現在は、理工系・情報系を志望する方に絞っています。どうしても指導をご希望の際には、一度ご連絡ください。</p>
+        </details>
+        <details>
+          <summary>高校3年生は対象ですか？</summary>
+          <p>現在は、高校1・2年生向けの伴走型の指導を確立することを優先しております。高校3年生向けのプランは現在準備中です。</p>
+        </details>
+        <details>
+          <summary>モニターとは何ですか？</summary>
+          <p>最初の契約（8週間）を無料でお試しいただく制度です。2回目以降は、8週間ごとの契約となります。ただし、この制度は予告なく終了する場合があります。
+          </p>
+        </details>
+        <details>
+          <summary>オンライン面談に必要なものは？</summary>
+          <p>Google Meetを利用できるパソコンやタブレットと、インターネット環境があれば参加できます。</p>
+        </details>
+        <details>
+          <summary>合格は保証されますか？</summary>
+          <p>合格をお約束することはできません。入試の結果は、本人の取り組みと、志望先との相性など多くの要素で決まるためです。私たちが約束するのは、自分の興味を深める時間と、そのための伴走です。</p>
+        </details>
       </div>
     </div>
   </section>
@@ -249,7 +430,8 @@
       <h2>お問い合わせ・モニター応募</h2>
       <p>
         ご質問や体験のご相談、モニターへのご応募は、下記からお気軽にどうぞ。
-        保護者の方からのお問い合わせも歓迎します。
+        保護者の方からのお問い合わせも大歓迎です。
+        <br>ただし、モニターの制度は予告なく終了する場合があります。
       </p>
       <div class="hero-actions">
         <!-- GoogleフォームのURLに差し替えてください -->
@@ -265,6 +447,10 @@
 <footer class="site-footer">
   <div class="inner footer-inner">
     <div>
+      <!--
+        【ロゴ】グループロゴ（Cタイプ：イラストの下に文字）。
+        ファイル名を実際のものに合わせてください。 → logo/group_C.png
+      -->
       <img class="footer-logo" src="logo/nekko-official_Blogo_original.png" alt="nekko">
     </div>
     <nav class="footer-nav" aria-label="フッターメニュー">
@@ -275,6 +461,110 @@
   </div>
   <p class="copyright">© 2026 nekko</p>
 </footer>
+
+<script>
+  /* ファーストビューのロゴが画面から出たら、ヘッダー左にロゴを表示する */
+  (function () {
+    var header = document.querySelector(".site-header");
+    var target = document.querySelector(".first-logo");
+    if (!header || !target || !("IntersectionObserver" in window)) {
+      /* 非対応の環境では、ロゴを常に表示する */
+      document.documentElement.classList.remove("js");
+      return;
+    }
+    new IntersectionObserver(function (entries) {
+      header.classList.toggle("show-logo", !entries[0].isIntersecting);
+    }).observe(target);
+  })();
+</script>
+
+<script>
+  /* プロフィール写真：横に自動スクロールするスライダー */
+  (function () {
+    var slider = document.querySelector(".slider");
+    if (!slider) return;
+    var track = slider.querySelector(".slider-track");
+    var slides = track.children;
+    var n = slides.length;
+    var controls = slider.querySelector(".slider-controls");
+    if (n < 2) return;
+
+    var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var INTERVAL = 4000;          /* 切り替え間隔（ミリ秒） */
+    var playing = !reduce;        /* 動きを減らす設定の人には自動再生しない */
+    var hold = false;             /* カーソル・フォーカス・タッチ中は止める */
+    var index = 0;
+
+    /* ドット */
+    var dots = [];
+    var dotWrap = document.createElement("div");
+    dotWrap.className = "slider-dots";
+    for (var i = 0; i < n; i++) {
+      (function (i) {
+        var b = document.createElement("button");
+        b.type = "button";
+        b.setAttribute("aria-label", (i + 1) + "枚目を表示");
+        b.addEventListener("click", function () { go(i); });
+        dotWrap.appendChild(b);
+        dots.push(b);
+      })(i);
+    }
+    controls.appendChild(dotWrap);
+
+    /* 停止／再生ボタン */
+    var toggle = document.createElement("button");
+    toggle.type = "button";
+    toggle.className = "slider-toggle";
+    function renderToggle() {
+      /* アイコンはCSSで描画（停止中は is-paused で三角に切り替わる） */
+      toggle.classList.toggle("is-paused", !playing);
+      toggle.setAttribute("aria-label", playing ? "自動スクロールを停止" : "自動スクロールを再生");
+      toggle.title = playing ? "停止" : "再生";
+    }
+    toggle.addEventListener("click", function () { playing = !playing; renderToggle(); });
+    renderToggle();
+    controls.appendChild(toggle);
+
+    function render() {
+      for (var i = 0; i < n; i++) {
+        if (i === index) dots[i].setAttribute("aria-current", "true");
+        else dots[i].removeAttribute("aria-current");
+      }
+    }
+    function go(i, instant) {
+      index = (i + n) % n;
+      track.scrollTo({ left: index * track.clientWidth, behavior: (reduce || instant) ? "auto" : "smooth" });
+      render();
+    }
+
+    /* 手でスワイプしたときもドットを追従させる */
+    track.addEventListener("scroll", function () {
+      var i = Math.round(track.scrollLeft / track.clientWidth);
+      if (i !== index && i >= 0 && i < n) { index = i; render(); }
+    }, { passive: true });
+
+    /* 触れている間は止める */
+    slider.addEventListener("mouseenter", function () { hold = true; });
+    slider.addEventListener("mouseleave", function () { hold = false; });
+    slider.addEventListener("focusin", function () { hold = true; });
+    slider.addEventListener("focusout", function () { hold = false; });
+    slider.addEventListener("touchstart", function () { hold = true; }, { passive: true });
+    slider.addEventListener("touchend", function () { hold = false; }, { passive: true });
+
+    /* 画面に見えているときだけ自動で進める */
+    var visible = true;
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(function (entries) { visible = entries[0].isIntersecting; }).observe(slider);
+    }
+
+    setInterval(function () {
+      if (playing && !hold && visible && !document.hidden) go(index + 1);
+    }, INTERVAL);
+
+    window.addEventListener("resize", function () { go(index, true); });
+    render();
+  })();
+</script>
 
 </body>
 </html>
